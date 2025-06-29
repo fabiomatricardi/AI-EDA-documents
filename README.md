@@ -42,3 +42,57 @@ I created 2 different local libraries
 
 The first one is used for LLM calls with json and requests
 The second one handles the file operations and the Exploratory Document Analysis (EDA)
+
+
+### How to browse the `doc_db.pkl`
+For now I have not prepared yet a gradio GUI
+You can use ipython to explore the db
+```bash
+pip install ipython
+```
+from the terminal run
+```bash
+ipython
+```
+And then use the following:
+```python
+import mydoclib as ml
+import pickle
+import os
+import warnings
+warnings.filterwarnings(action='ignore')
+import requests
+import sys
+import json
+import pypdf
+import tiktoken
+from datetime import datetime
+import RAGLIB as rag
+
+parent_folder="."
+documents_path = os.path.join(parent_folder, "documents")
+index_file_path = os.path.join(documents_path, "index.pkl")
+db_file_path = os.path.join(documents_path, "doc_db.pkl")
+first_pdf_files_list = []
+
+# Load existing doc_db.pkl using the helper function
+existing_doc_db = []
+if os.path.exists(db_file_path):
+    loaded_db = ml.load_list_from_pickle(db_file_path)
+    if loaded_db is not None:
+        existing_doc_db = loaded_db
+
+len(existing_doc_db)
+existing_doc_db[0]['filename']  #filename of the PDF file
+existing_doc_db[0]['summary']   #summary generated with Qwen2.5-1.5b
+existing_doc_db[0]['topics']    #topics extracted with Qwen2.5-1.5b
+existing_doc_db[0]['tokens']    #tokens counted with tiktoken
+
+
+```
+
+---
+
+
+
+
