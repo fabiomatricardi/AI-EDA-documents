@@ -1,6 +1,8 @@
 # AI-EDA-documents
 LLM call to llama-server to parse new pdf documents into meaningful database
 
+<img src='https://github.com/fabiomatricardi/AI-EDA-documents/raw/main/mylibEDA.gif' width=900>
+
 ## Python is the best for AI automation
 
 Call llama-server to perform automatic scan of a folder `documents`: if there are new pdf files it will start to 
@@ -43,6 +45,7 @@ I created 2 different local libraries
 The first one is used for LLM calls with json and requests
 The second one handles the file operations and the Exploratory Document Analysis (EDA)
 
+<img src='https://github.com/fabiomatricardi/AI-EDA-documents/raw/main/explore_EDA.gif' width=900>
 
 ### How to browse the `doc_db.pkl`
 For now I have not prepared yet a gradio GUI
